@@ -194,8 +194,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             int indexTypeEnd = rawWeather.indexOf(",", indexType);
 
             typeS = rawWeather.substring(indexType+14,indexTypeEnd-1);
-
-           // Double type = Double.parseDouble(typeS);
         }
+        TextView textView = (TextView) findViewById(R.id.textView);
+        String noRain = "The temperature is "+tempS+"\nThe humidity is "+humidS+"\nThe wind speed is "+windS+"\nThe precipitation probability is "+precipS;
+        String yesRain = "The temperature is " +tempS+ "\r\nThe humidity is " +humidS+ "\r\nThe wind speed is "+ windS +"\r\nThe precipitation probability is " +precipS+ "\r\nThe preciptiation type "+typeS;
+        String outp2 = "The temperature is "+tempS+System.getProperty("line.separator")+"The humidity is "+humidS+System.getProperty("line.separator")+"The wind speed is "+windS+System.getProperty("line.separator")+"The precipitation probability is "+precipS;
+        String outp = String.format("Temp is %s\r\nHumidity is %s\r\nWind Speed is %s\nPrecipitation is %s\n",tempS,humidS,windS,precipS);
+        String outp3 = "The temperature is "+tempS+". The humidity is "+humidS+". The wind speed is "+windS+". The precipitation probability is "+precipS;
+
+        String outTemp = "The temperature is "+tempS;
+        String outHumid = "The humidity is "+humidS;
+        String outWind = "The wind speed is "+windS;
+        String outP = "The precipitation probability is "+precipS;
+        String rainType = "The precipitation type is " + typeS;
+
+        String finalout = outTemp+"\n"+outHumid+"\n"+outWind+"\n"+outP+"\n"+ rainType;
+        textView.setText(finalout);
+
+        /*if(typeS.equals("none")){
+            textView.setText(noRain);}
+        else{
+            textView.setText(yesRain);
+        }*/
     }
 }
